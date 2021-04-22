@@ -6,7 +6,7 @@ public class Playlist {
 
     public Playlist(String name) {
       this.name = name;
-      this.playlist = new ArrayList<Song>();
+      this.playlist = new ArrayList<>();
     }
 
     public boolean isEmpty() {
@@ -15,24 +15,34 @@ public class Playlist {
 
     public void addSong(Song song) {
         playlist.add(song);
-    };
+    }
 
     public String[] songNames() {
         if (this.isEmpty()) {
             return new String[0];
         }
 
-        String[] songArray = new String[2];
-        songArray[0] = this.playlist.get(0).title;
-        songArray[1] = this.playlist.get(1).title;
+        String[] songArray = new String[this.playlist.size()];
+        for (int i = 0; i < songArray.length; i += 1) {
+            songArray[i] = this.playlist.get(i).title;
+        }
+
         return songArray;
     }
 
     public int totalDuration() {
         int total = 0;
-        for (int i = 0; i < this.playlist.size(); i += 1) {
-            total += this.playlist.get(i).durationInSeconds;
+        for (Song song : this.playlist) {
+            total += song.durationInSeconds;
         }
         return total;
+    }
+
+    public void swap(Song sOne, Song sTwo) {
+        int sOneIdx = this.playlist.indexOf(sOne);
+        int sTwoIdx = this.playlist.indexOf(sTwo);
+
+        this.playlist.set(sOneIdx, sTwo);
+        this.playlist.set(sTwoIdx, sOne);
     }
 }

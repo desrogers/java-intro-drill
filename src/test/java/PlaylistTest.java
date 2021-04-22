@@ -57,24 +57,24 @@ public class PlaylistTest {
         assertEquals(200+408, playlist.totalDuration());
     }
 
-//    @Test
-//    public void swapSongs_allowsSongsToBeSwappedInPlaylistOrder() {
-//        Playlist playlist = new Playlist("Swap Playlist");
-//        Song everything = new Song("Radiohead", "Everything In Its Right Place", 200);
-//        Song time = new Song("Pink Floyd", "Time", 408);
-//        Song itsIce = new Song("Phish", "It's Ice", 600);
-//
-//        playlist.addSong(everything);
-//        playlist.addSong(time);
-//        playlist.addSong(itsIce);
-//
-//        String[] originalSongOrder = {"Everything In Its Right Place", "Time", "It's Ice"};
-//        assertArrayEquals(originalSongOrder, playlist.songNames());
-//
-//        playlist.swap(itsIce, everything);
-//        String[] swappedSongOrder = {"It's Ice", "Time", "Everything In Its Right Place"};
-//        assertArrayEquals(swappedSongOrder, playlist.songNames());
-//    }
+    @Test
+    public void swapSongs_allowsSongsToBeSwappedInPlaylistOrder() {
+        Playlist playlist = new Playlist("Swap Playlist");
+        Song everything = new Song("Radiohead", "Everything In Its Right Place", 200);
+        Song time = new Song("Pink Floyd", "Time", 408);
+        Song itsIce = new Song("Phish", "It's Ice", 600);
+
+        playlist.addSong(everything);
+        playlist.addSong(time);
+        playlist.addSong(itsIce);
+
+        String[] originalSongOrder = {"Everything In Its Right Place", "Time", "It's Ice"};
+        assertArrayEquals(originalSongOrder, playlist.songNames());
+
+        playlist.swap(itsIce, everything);
+        String[] swappedSongOrder = {"It's Ice", "Time", "Everything In Its Right Place"};
+        assertArrayEquals(swappedSongOrder, playlist.songNames());
+    }
 
 //    @Test
 //    public void removeSong_allowsSongsToBeRemovedFromPlaylist() {
