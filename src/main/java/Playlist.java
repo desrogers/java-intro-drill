@@ -45,4 +45,8 @@ public class Playlist {
         this.playlist.set(sOneIdx, sTwo);
         this.playlist.set(sTwoIdx, sOne);
     }
+
+    public void removeSong(Song song) {
+        this.playlist.remove(song);
+    }
 }
